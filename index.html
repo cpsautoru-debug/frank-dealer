@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Готовый бизнес на маркетплейсах | Автоателье АВТОСКЛАД163</title>
+    <meta name="description" content="Готовый бизнес на Wildberries и Ozon. Автоковрики и чехлы от производителя. Вход от 215 000 ₽. Окупаемость 2 месяца.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #ff6b00;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b00;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b00, #ff8c00);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+        }
+
+        .hero {
+            padding: 8rem 0 4rem;
+            background: radial-gradient(circle at top right, rgba(255, 107, 0, 0.1), transparent);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #ff6b00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ff6b00;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title span {
+            color: #ff6b00;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid transparent;
+            transition: transform 0.3s;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .comparison-card.problem {
+            border-color: #ff4444;
+        }
+
+        .comparison-card.solution {
+            border-color: #00ff88;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card.problem h3 {
+            color: #ff4444;
+        }
+
+        .comparison-card.solution h3 {
+            color: #00ff88;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            padding: 0.5rem 0;
+            color: #ccc;
+        }
+
+        .comparison-card.problem li:before {
+            content: "❌ ";
+        }
+
+        .comparison-card.solution li:before {
+            content: "✅ ";
+        }
+
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .package-card {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-card.featured {
+            border-color: #ff6b00;
+            background: linear-gradient(135deg, #2a1a0a, #3a2a1a);
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #ff6b00;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .package-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .package-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ff6b00;
+            margin-bottom: 1rem;
+        }
+
+        .package-features {
+            list-style: none;
+            text-align: left;
+            margin: 1.5rem 0;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            color: #ccc;
+        }
+
+        .package-features li:before {
+            content: "✓ ";
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .profit-table {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 2rem;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background: #2a2a2a;
+            color: #ff6b00;
+            font-weight: 700;
+        }
+
+        tr:hover {
+            background: #2a2a2a;
+        }
+
+        .highlight {
+            color: #00ff88;
+            font-weight: 700;
+        }
+
+        .prices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .price-card {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #ff6b00;
+        }
+
+        .price-card h4 {
+            color: #ff6b00;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0.5rem 0;
+        }
+
+        .price-retail {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .urgency {
+            background: linear-gradient(135deg, #ff6b00, #ff8c00);
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .urgency h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .urgency-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .urgency-list li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .urgency-list li:before {
+            content: "❌ ";
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .step {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            background: #ff6b00;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .contact {
+            background: #1a1a1a;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: #000;
+            padding: 2rem 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .package-price {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">АВТОСКЛАД163</div>
+            <ul class="nav-links">
+                <li><a href="#packages">Пакеты</a></li>
+                <li><a href="#profit">Прибыль</a></li>
+                <li><a href="#prices">Цены</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Начать</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>ГОТОВЫЙ БИЗНЕС НА МАРКЕТПЛЕЙСАХ</h1>
+            <p class="hero-subtitle">Автоковрики и чехлы от производителя</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">215 000 ₽</div>
+                    <div class="stat-label">Вход от</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2 месяца</div>
+                    <div class="stat-label">Окупаемость</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">128 350 ₽</div>
+                    <div class="stat-label">Прибыль</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">5 мест</div>
+                    <div class="stat-label">Осталось</div>
+                </div>
+            </div>
+
+            <a href="#packages" class="cta-button">Выбрать пакет</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Почему <span>мы?</span></h2>
+            
+            <div class="comparison">
+                <div class="comparison-card problem">
+                    <h3>Запуск с нуля</h3>
+                    <ul>
+                        <li>30-50к на создание карточки</li>
+                        <li>100-150к на раскрутку до отзывов</li>
+                        <li>4-6 месяцев до первой прибыли</li>
+                        <li>Итого: 330-400к + полгода</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card solution">
+                    <h3>С нами</h3>
+                    <ul>
+                        <li>Карточки с 150-200 отзывами</li>
+                        <li>Рейтинг 4.7-5.0</li>
+                        <li>Товарный запас на 200к</li>
+                        <li>Итого: 215-250к + 2 месяца</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="font-size: 1.3rem; color: #00ff88; font-weight: 700;">
+                    💎 Экономия: 150 000 ₽ и 4-6 месяцев
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages">
+        <div class="container">
+            <h2 class="section-title">Выберите <span>пакет</span></h2>
+            
+            <div class="packages">
+                <div class="package-card">
+                    <div class="package-name">Ozon Start</div>
+                    <div class="package-price">215 000 ₽</div>
+                    <ul class="package-features">
+                        <li>Карточка Ozon (150-200 отзывов)</li>
+                        <li>Рейтинг 4.7-5.0</li>
+                        <li>Товар на 200 000 ₽</li>
+                        <li>Приоритетная отгрузка 36ч</li>
+                        <li>Фиксация цен навсегда</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Выбрать</a>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-name">WB Start</div>
+                    <div class="package-price">235 000 ₽</div>
+                    <ul class="package-features">
+                        <li>Карточка WB (150+ отзывов)</li>
+                        <li>Рейтинг 4.7+</li>
+                        <li>Товар на 200 000 ₽</li>
+                        <li>Приоритетная отгрузка 36ч</li>
+                        <li>Фиксация цен навсегда</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Выбрать</a>
+                </div>
+
+                <div class="package-card featured">
+                    <div class="badge">BEST VALUE</div>
+                    <div class="package-name">PRO (WB + Ozon)</div>
+                    <div class="package-price">250 000 ₽</div>
+                    <ul class="package-features">
+                        <li>2 карточки (WB + Ozon)</li>
+                        <li>Рейтинг 4.7-5.0</li>
+                        <li>Товар на 200 000 ₽</li>
+                        <li>Приоритетная отгрузка 36ч</li>
+                        <li>Фиксация цен навсегда</li>
+                        <li>Максимальная прибыль</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Выбрать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profit">
+        <div class="container">
+            <h2 class="section-title">Ваша <span>прибыль</span></h2>
+            <p style="text-align: center; color: #aaa; margin-bottom: 2rem;">
+                Расчет на 42 комплекта чехлов Lada Vesta (закупка по 4 700 ₽)
+            </p>
+            
+            <div class="profit-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Площадка</th>
+                            <th>Прибыль с 1 шт</th>
+                            <th>Прибыль с 42 шт</th>
+                            <th>Окупаемость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ozon FBS (ваш склад) </td>
+                            <td>3 056 ₽</td>
+                            <td class="highlight">128 352 ₽</td>
+                            <td>2 месяца</td>
+                        </tr>
+                        <tr>
+                            <td>Ozon FBO (склад Ozon)</td>
+                            <td>3 166 ₽</td>
+                            <td class="highlight">132 972 ₽</td>
+                            <td>1.9 месяца</td>
+                        </tr>
+                        <tr>
+                            <td>Wildberries</td>
+                            <td>1 849 ₽</td>
+                            <td class="highlight">77 658 ₽</td>
+                            <td>3.2 месяца</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 2rem; background: #1a1a1a; padding: 2rem; border-radius: 16px;">
+                <h3 style="color: #ff6b00; margin-bottom: 1rem;">📊 После первой продажи:</h3>
+                <ul style="list-style: none; font-size: 1.1rem;">
+                    <li style="padding: 0.5rem 0;">✓ Возврат 250 000 ₽ вложений</li>
+                    <li style="padding: 0.5rem 0;">✓ Прибыль 128 000+ ₽</li>
+                    <li style="padding: 0.5rem 0; font-size: 1.3rem; font-weight: 700; color: #00ff88;">= 378 000 ₽ для реинвестирования</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="font-size: 1.5rem; color: #ff6b00; font-weight: 700;">
+                    Рентабельность инвестиций: 51-67%
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="prices">
+        <div class="container">
+            <h2 class="section-title">Дилерские <span>цены</span></h2>
+            
+            <div class="prices-grid">
+                <div class="price-card">
+                    <h4>Чехлы Веста</h4>
+                    <div class="price-value">4 700 ₽</div>
+                    <div class="price-retail">Розница: 8 000 - 18 000 ₽</div>
+                </div>
+                
+                <div class="price-card">
+                    <h4>Чехлы Приора/Самара</h4>
+                    <div class="price-value">4 000 ₽</div>
+                    <div class="price-retail">Розница: 6 000 - 10 000 ₽</div>
+                </div>
+                
+                <div class="price-card">
+                    <h4>Коврики (комплект)</h4>
+                    <div class="price-value">1 200 ₽</div>
+                    <div class="price-retail">Розница: 2 400 - 3 200 ₽</div>
+                </div>
+            </div>
+
+            <div style="background: #1a1a1a; padding: 2rem; border-radius: 16px; margin-top: 2rem;">
+                <h3 style="color: #00ff88; margin-bottom: 1rem;">✅ Условия фиксации цен:</h3>
+                <ul style="list-style: none; font-size: 1.1rem;">
+                    <li style="padding: 0.5rem 0;">✓ Цены фиксируются навсегда при закупках от 200к</li>
+                    <li style="padding: 0.5rem 0;">✓ Пересмотр только при росте себестоимости (материалы, ФОТ)</li>
+                    <li style="padding: 0.5rem 0;">✓ Мы предупреждаем заранее и предоставляем обоснование</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="urgency">
+                <h3>⚡ ТОЛЬКО 5 МЕСТ</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">После заполнения лимита:</p>
+                <ul class="urgency-list">
+                    <li>Входной порог вырастет до 300 000 ₽</li>
+                    <li>Цены вырастут на 500 ₽ (чехлы) и 100 ₽ (коврики)</li>
+                    <li>Приоритетная отгрузка — только первым 5 партнерам</li>
+                </ul>
+                <a href="#contact" class="cta-button" style="background: #fff; color: #ff6b00; font-size: 1.2rem; padding: 1rem 2rem;">
+                    Забронировать место
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">Как <span>начать?</span></h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Созвон</h4>
+                    <p style="color: #aaa;">20 минут, обсуждаем детали</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Договор</h4>
+                    <p style="color: #aaa;">Подписываем, фиксируем цены</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Оплата</h4>
+                    <p style="color: #aaa;">Вносите платеж за пакет</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Перенос</h4>
+                    <p style="color: #aaa;">3 дня, переносим карточки</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Отгрузка</h4>
+                    <p style="color: #aaa;">36 часов, товар на складе</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h4>Старт</h4>
+                    <p style="color: #aaa;">Прибыль через 2-3 недели</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Готовы начать?</h2>
+                <p style="color: #aaa; font-size: 1.1rem; margin-bottom: 2rem;">
+                    Свяжитесь со мной, чтобы забронировать одно из 5 мест
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+7 (902) 158-49-61</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <span>Frankbyboy@yandex.ru</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>ТОЛЬЯТТИ</span>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/79021584961 class="cta-button" style="font-size: 1.2rem; padding: 1rem 2rem; margin-top: 1rem;">
+                    Написать в WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Автоателье АВТОСКЛАД163. Все права защищены.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Производитель автоковриков и чехлов</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.package-card, .comparison-card, .step, .price-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
